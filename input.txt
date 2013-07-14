@@ -1,0 +1,14 @@
+1 ; number of test cases
+5 ; number of periods
+2 ; number of depots
+1 1 ; number of vehicle per depot
+5 ; number of clients
+2 3 2 3 1 ; frequency
+0 5 1 5 1 5 5
+5 0 5 5 5 1 1
+1 5 0 1 5 5 5
+5 5 1 0 1 5 5
+1 5 5 1 0 5 5
+5 1 5 5 5 0 1
+5 1 5 5 5 1 0
+
