@@ -68,11 +68,12 @@ class ProblemInstance
 {
 public:
 	int depotCount,customerCount,periodCount;
-	int* vehicleAllocation;
+	int* vehicleAllocation; // kon depot er koyta kore vehicle
 	double **costMatrix;
 	int nodeCount;
 	int *frequencyAllocation;
 	int vehicleCount;
+	int* depotAllocation; // kon vehicle kon depot er under a
 
 
 void print()
@@ -84,6 +85,10 @@ void print()
 	cout<<"Number of vehicles : "<< vehicleCount <<" Allocation : ";
 	for(int j=0;j<depotCount;j++) cout<<vehicleAllocation[j]<<" ";
 	cout<<endl;
+
+	cout<<"Vehicle to Depot Mapping : ";
+	for(int j=0;j<vehicleCount;j++) cout << depotAllocation[j]<<" ";
+	cout << endl;
 
 	cout<<"Clients : "<<customerCount<<endl;
 
@@ -126,6 +131,71 @@ public:
 		fitness = -1;
 		feasibilitySet = false;
 		isFeasible = false;
+	}
+
+	//calculate and return fitness of individual
+	double calculateFitness()
+	{
+		double cost = 0;
+		for(int i=0;i<problemInstance.periodCount;i++)
+		{
+			for(int j=0;j<problemInstance.vehicleCount;j++)
+			{
+				cost += calculateFitness(i,j);
+			}
+		}
+
+		fitness = cost;
+		return fitness;
+	}
+
+	//calcuate fitness for each period for each vehicle
+	// route for vehicle i is  [ routePartition[i-1]+1 , routePartition[i] ]
+	// given that routePartition[i-1]+1 <= routePartition[i]
+
+	double calculateFitness(int period,int vehicle)
+	{
+		int assignedDepot;
+		assignedDepot = problemInstance.depotAllocation[vehicle];
+		double cost = 0;
+		int start,end; // marks the first and last position of corresponding route for the array permutation
+
+		if(vehicle == 0) start = 0;
+		else start = routePartition[vehicle-1]+1;
+
+		end = routePartition[vehicle];
+
+		if(end<start) return 0;
+
+		int activeStart=-1,activeEnd,previous=-1,clientNode;
+
+
+		for(int i=start;i<=end;i++)
+		{
+			clientNode = permutation[period][i];
+			if(periodAssignment[period][clientNode]==false) continue;
+
+			if(activeStart == -1) activeStart = clientNode;
+			activeEnd = clientNode;
+
+			if(previous == -1)
+			{
+				previous = clientNode;
+				continue;
+			}
+
+			cost +=	problemInstance.costMatrix[previous+problemInstance.depotCount][clientNode+problemInstance.depotCount];
+
+			previous = clientNode;
+
+		}
+
+		cost += problemInstance.costMatrix[assignedDepot][activeStart+problemInstance.depotCount];
+		cost += problemInstance.costMatrix[activeEnd+problemInstance.depotCount][assignedDepot];
+
+
+		return cost;
+
 	}
 
 	void initialise(ProblemInstance problemInstance)
@@ -192,7 +262,7 @@ public:
 			{
 				j = rand() % i ;
 
-				if(i == j) continue;
+				//if(i == j) continue;
 
 				tmp = permutation[period][i];
 				permutation[period][i] = permutation[period][j];
@@ -201,7 +271,7 @@ public:
 		}
 
 
-		//NEED TO GENERATE #vehicle-1 distinct random numbers in increasing order from [0,#customer - 1]
+		//NEED TO GENERATE #vehicle-1 (not distinct - distinct) random numbers in increasing order from [0,#customer - 1]
 		// DEVICE some faster and smarter algorithm
 
 		// route for vehicle i is  [ routePartition[i-1]+1 , routePartition[i] ]
@@ -213,18 +283,20 @@ public:
 		{
 			random = rand() % problemInstance.customerCount;
 
-			found = binarySearch(random,allocated-1);
+			//found = binarySearch(random,allocated-1);
 
-			if(found) continue;
-			else
-			{
-				routePartition[allocated]=random;
-				sort(random,allocated);
-				allocated++;
-			}
+			//if(found) continue;
+			//else
+			//{
+			routePartition[allocated]=random;
+			sort(random,allocated);
+			allocated++;
+
+			//}
 		}
 		routePartition[problemInstance.vehicleCount-1] = problemInstance.customerCount-1;
 
+		calculateFitness();
 	}
 
 	// sorts the array routePartition in increasing order
@@ -293,6 +365,7 @@ public:
 		cout<< "Route partition : ";
 		for(int i=0;i<problemInstance.vehicleCount;i++)cout<< routePartition[i] <<" ";
 		cout << endl;
+		cout << "Fitness/Cost : " << fitness << endl;
 	}
 };
 
@@ -324,11 +397,12 @@ public:
 		for(int i=0; i<POPULATION_SIZE; i++)
 		{
 			population[i].initialise(problemInstance);
+			cout<<"Printing individual "<<i <<" : "<<endl;
 			population[i].print();
 		}
 	}
 };
-
+ProblemInstance problemInstance;
 
 void parseInputFile()
 {
@@ -347,8 +421,6 @@ void parseInputFile()
 
 	for(int t=0 ; t<testCases;t++)
 	{
-		ProblemInstance problemInstance;
-
 		cout<< "TEST CASE "<<t+1<<" : "<<endl<<endl;
 
 		in>>problemInstance.periodCount;
@@ -357,12 +429,23 @@ void parseInputFile()
 		in>>problemInstance.depotCount;
 		escapeComment();
 
+		in>>problemInstance.vehicleCount;
+		escapeComment();
+
+
 		problemInstance.vehicleAllocation = new int[problemInstance.depotCount];
-		problemInstance.vehicleCount = 0;
+		problemInstance.depotAllocation = new int[problemInstance.vehicleCount];
+		int vehicleCursor = 0;
+
 		for(int j=0;j<problemInstance.depotCount;j++)
 		{
 			in>>problemInstance.vehicleAllocation[j];
-			problemInstance.vehicleCount += problemInstance.vehicleAllocation[j];
+
+			for(int i=0;i<problemInstance.vehicleAllocation[j];i++)
+			{
+				problemInstance.depotAllocation[vehicleCursor]=j;
+				vehicleCursor++;
+			}
 		}
 		escapeComment();
 
@@ -384,6 +467,7 @@ void parseInputFile()
 			for(int col=0;col<problemInstance.nodeCount;col++)
 				in>>problemInstance.costMatrix[row][col];
 
+		problemInstance.print();
 
 		GeneticAlgo ga(problemInstance);
 		ga.run();
