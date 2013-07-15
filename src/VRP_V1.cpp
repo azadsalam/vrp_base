@@ -50,7 +50,7 @@ public:
 
 */
 
-#define POPULATION_SIZE 3
+#define POPULATION_SIZE 1
 #define NUMBER_OF_GENERATION 5
 
 int testCases ;
@@ -277,7 +277,7 @@ public:
 		// route for vehicle i is  [ routePartition[i-1]+1 , routePartition[i] ]
 		// given that routePartition[i-1]+1 <= routePartition[i]
 
-		bool found;
+		//bool found;
 		allocated = 0;
 		while(allocated != problemInstance.vehicleCount-1)
 		{
@@ -365,8 +365,58 @@ public:
 		cout<< "Route partition : ";
 		for(int i=0;i<problemInstance.vehicleCount;i++)cout<< routePartition[i] <<" ";
 		cout << endl;
-		cout << "Fitness/Cost : " << fitness << endl;
+		cout << "Fitness/Cost : " << fitness << endl <<endl;
 	}
+
+	void mutatePermutation(int period)
+	{
+		int first = rand() % problemInstance.customerCount;
+
+		int second;
+		do
+		{
+			second = rand() % problemInstance.customerCount;
+		}
+		while(periodAssignment[period][second]==false || second == first);
+
+		int temp = permutation[period][first];
+		permutation[period][first] = permutation[period][second];
+		permutation[period][second] = temp;
+
+		// FITNESS CAN BE UPDATED HERE
+	}
+
+	//moves some red line
+	//no effect if only one vehicle
+	void mutateRoutePartition()
+	{
+		//pick a red line/seperator
+		//generate random number in [0,vehicleCount-1)
+
+		if(problemInstance.vehicleCount == 1) return ;
+		int seperatorIndex = rand() % (problemInstance.vehicleCount-1);
+		int dir = rand() %2; // 0-> left , 1-> right
+
+		//if(seperatorIndex == 0) dir = 1; // 0th seperator will always go right
+
+		int difference,increment;
+		if(dir==0)//move the seperator left
+		{
+			if(seperatorIndex==0) difference = routePartition[0] ;
+			else difference = routePartition[seperatorIndex] - routePartition[seperatorIndex-1] ;
+			increment = 1 + ( rand() % difference );
+			routePartition[seperatorIndex] -= increment;
+		}
+		else	//move the seperator right
+		{
+			difference = routePartition[seperatorIndex+1] - routePartition[seperatorIndex] ;
+			increment = 1 + (rand() % difference );
+			routePartition[seperatorIndex] += increment;
+		}
+
+
+	}
+
 };
 
 class GeneticAlgo
@@ -388,6 +438,11 @@ public:
 
 		for(int generation=0;generation<NUMBER_OF_GENERATION;generation++)
 		{
+
+			cout << "GENERATION : "<<generation<<" \n";
+			population[0].mutateRoutePartition();
+			population[0].calculateFitness();
+			population[0].print();
 
 		}
 	}
