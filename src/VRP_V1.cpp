@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+
 /*
 class ProblemInstance
 {
@@ -74,8 +75,9 @@ public:
 	int *frequencyAllocation;
 	int vehicleCount;
 	int* depotAllocation; // kon vehicle kon depot er under a
-
-
+	double* loadCapacity; // kon vehicle max koto load nite parbe
+	double* serviceTime;  // kon client kototuk time lage service pete
+	double* demand; 	  // kon client koto demand
 void print()
 {
 	cout<<"Period : "<<periodCount<<endl;
@@ -90,11 +92,26 @@ void print()
 	for(int j=0;j<vehicleCount;j++) cout << depotAllocation[j]<<" ";
 	cout << endl;
 
+	cout<<"Load Capacity/ Max allowable load for each vehicle : ";
+	for(int i=0;i<vehicleCount;i++) cout << loadCapacity[i] << " ";
+	cout<< endl;
+
+
 	cout<<"Clients : "<<customerCount<<endl;
 
 	cout << "Frequency allocation : ";
 	for(int i =0;i<customerCount ;i++) cout << frequencyAllocation[i] << " ";
 	cout <<endl;
+
+	cout << "Service Time : ";
+	for(int i =0;i<customerCount ;i++) cout << serviceTime[i] << " ";
+	cout <<endl;
+
+	cout << "Demand (load) : ";
+	for(int i =0;i<customerCount ;i++) cout << demand[i] << " ";
+	cout <<endl;
+
+
 
 	cout<< "Printing cost matrix : \n";
 
@@ -388,29 +405,35 @@ public:
 
 	//moves some red line
 	//no effect if only one vehicle
+
 	void mutateRoutePartition()
 	{
+		//nothing to do if only one vehicle
+		if(problemInstance.vehicleCount == 1) return ;
+
 		//pick a red line/seperator
 		//generate random number in [0,vehicleCount-1)
-
-		if(problemInstance.vehicleCount == 1) return ;
 		int seperatorIndex = rand() % (problemInstance.vehicleCount-1);
 		int dir = rand() %2; // 0-> left , 1-> right
 
-		//if(seperatorIndex == 0) dir = 1; // 0th seperator will always go right
-
-		int difference,increment;
+		int distance,increment;
 		if(dir==0)//move the seperator left
 		{
-			if(seperatorIndex==0) difference = routePartition[0] ;
-			else difference = routePartition[seperatorIndex] - routePartition[seperatorIndex-1] ;
-			increment = 1 + ( rand() % difference );
+			if(seperatorIndex==0) distance = routePartition[0] ;
+			else distance = routePartition[seperatorIndex] - routePartition[seperatorIndex-1];
+			// if the line can not merge with the previous one ,
+			// difference = routePartition[seperatorIndex] - 1 - routePartition[seperatorIndex-1]
+
+			// increment should be in [1,distance]
+			if(distance==0)return;
+			increment = 1 + ( rand() % distance );
 			routePartition[seperatorIndex] -= increment;
 		}
 		else	//move the seperator right
 		{
-			difference = routePartition[seperatorIndex+1] - routePartition[seperatorIndex] ;
-			increment = 1 + (rand() % difference );
+			distance = routePartition[seperatorIndex+1] - routePartition[seperatorIndex] ;
+			if(distance==0)return;
+			increment = 1 + (rand() % distance );
 			routePartition[seperatorIndex] += increment;
 		}
 
@@ -449,6 +472,7 @@ public:
 
 	void initialisePopulation()
 	{
+		cout << "Initial population : \n";
 		for(int i=0; i<POPULATION_SIZE; i++)
 		{
 			population[i].initialise(problemInstance);
@@ -478,6 +502,8 @@ void parseInputFile()
 	{
 		cout<< "TEST CASE "<<t+1<<" : "<<endl<<endl;
 
+
+
 		in>>problemInstance.periodCount;
 		escapeComment();
 
@@ -488,6 +514,7 @@ void parseInputFile()
 		escapeComment();
 
 
+		//vehicle per depot
 		problemInstance.vehicleAllocation = new int[problemInstance.depotCount];
 		problemInstance.depotAllocation = new int[problemInstance.vehicleCount];
 		int vehicleCursor = 0;
@@ -504,16 +531,43 @@ void parseInputFile()
 		}
 		escapeComment();
 
+		//capacity of vehicle
+		problemInstance.loadCapacity = new double[problemInstance.vehicleCount];
+		for(int i=0;i<problemInstance.vehicleCount;i++)
+		{
+			in >> problemInstance.loadCapacity[i];
+		}
+		escapeComment();
+
+
+		//CLIENT COUNT
 		in>>problemInstance.customerCount;
 		escapeComment();
 
+		//frequency
 		problemInstance.frequencyAllocation = new int[problemInstance.customerCount];
-
 		for(int i=0 ; i<problemInstance.customerCount; i++) in>> problemInstance.frequencyAllocation[i];
 		escapeComment();
 
-		problemInstance.nodeCount = problemInstance.customerCount+problemInstance.depotCount;
 
+		//service time
+		problemInstance.serviceTime = new double[problemInstance.customerCount];
+		for(int i=0; i<problemInstance.customerCount; i++)
+		{
+			in >> problemInstance.serviceTime[i];
+		}
+		escapeComment();
+
+		//demand
+		problemInstance.demand = new double[problemInstance.customerCount];
+		for(int i=0 ; i<problemInstance.customerCount; i++)
+		{
+			in >> problemInstance.demand[i];
+		}
+		escapeComment();
+
+		// cost matrix
+		problemInstance.nodeCount = problemInstance.customerCount+problemInstance.depotCount;
 		problemInstance.costMatrix = new double*[problemInstance.nodeCount];
 		for(int i=0;i<problemInstance.nodeCount;i++)problemInstance.costMatrix[i] = new double[problemInstance.nodeCount];
 
@@ -529,9 +583,6 @@ void parseInputFile()
 	}
 	in.close();
 }
-
-
-
 
 
 int main()
