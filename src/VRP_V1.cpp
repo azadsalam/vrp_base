@@ -51,7 +51,7 @@ public:
 
 */
 
-#define POPULATION_SIZE 1
+#define POPULATION_SIZE 2
 #define NUMBER_OF_GENERATION 5
 
 int testCases ;
@@ -150,6 +150,48 @@ public:
 		isFeasible = false;
 	}
 
+	// make a copy cat individual
+	void makeCopy(Individual original)
+	{
+		this->problemInstance = original.problemInstance;
+
+
+		periodAssignment = new bool*[problemInstance.periodCount];
+		for(int i=0;i<problemInstance.periodCount;i++)
+		{
+			periodAssignment[i] = new bool[problemInstance.customerCount];
+
+			for(int j=0;j<problemInstance.customerCount;j++)
+			{
+				periodAssignment[i][j] = original.periodAssignment[i][j];
+			}
+		}
+
+
+
+		permutation = new int*[problemInstance.periodCount];
+		for(int i=0;i<problemInstance.periodCount;i++)
+		{
+			permutation[i] = new int[problemInstance.customerCount];
+
+			for(int j=0;j<problemInstance.customerCount;j++)
+			{
+				permutation[i][j] = original.permutation[i][j];
+			}
+		}
+
+
+		routePartition = new int[problemInstance.vehicleCount];
+		for(int i=0;i<problemInstance.vehicleCount;i++)
+		{
+			routePartition[i]=original.routePartition[i];
+		}
+
+		feasibilitySet = original.feasibilitySet;
+		fitness = original.fitness;
+		isFeasible = original.isFeasible;
+
+	}
 	//calculate and return fitness of individual
 	double calculateFitness()
 	{
@@ -405,7 +447,6 @@ public:
 
 	//moves some red line
 	//no effect if only one vehicle
-
 	void mutateRoutePartition()
 	{
 		//nothing to do if only one vehicle
@@ -462,10 +503,19 @@ public:
 		for(int generation=0;generation<NUMBER_OF_GENERATION;generation++)
 		{
 
-			cout << "GENERATION : "<<generation<<" \n";
-			population[0].mutateRoutePartition();
-			population[0].calculateFitness();
+			cout << "GENERATION : "<<generation<<"\n";
+			cout << "Parent : \n";
 			population[0].print();
+
+
+			cout << "Offspring : \n";
+			Individual offspring;
+			offspring.makeCopy(population[0]);
+			offspring.mutateRoutePartition();
+			offspring.calculateFitness();
+			offspring.print();
+
+
 
 		}
 	}
