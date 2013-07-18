@@ -51,8 +51,11 @@ public:
 
 */
 
-#define POPULATION_SIZE 10
-#define NUMBER_OF_GENERATION 25
+#define POPULATION_SIZE 3
+#define NUMBER_OF_OFFSPRING 3
+
+#define NUMBER_OF_GENERATION 5
+
 
 int testCases ;
 ifstream in ("input.txt");
@@ -133,7 +136,7 @@ public:
 	bool** periodAssignment;
 	int** permutation;
 	int* routePartition;
-	double fitness;
+	double cost;
 	bool isFeasible;
 	bool feasibilitySet;
 
@@ -145,7 +148,7 @@ public:
 		periodAssignment = NULL;
 		permutation = NULL;
 		routePartition = NULL;
-		fitness = -1;
+		cost = -1;
 		feasibilitySet = false;
 		isFeasible = false;
 	}
@@ -188,24 +191,24 @@ public:
 		}
 
 		feasibilitySet = original.feasibilitySet;
-		fitness = original.fitness;
+		cost = original.cost;
 		isFeasible = original.isFeasible;
 
 	}
 	//calculate and return fitness of individual
 	double calculateFitness()
 	{
-		double cost = 0;
+		double tempCost = 0;
 		for(int i=0;i<problemInstance.periodCount;i++)
 		{
 			for(int j=0;j<problemInstance.vehicleCount;j++)
 			{
-				cost += calculateFitness(i,j);
+				tempCost += calculateFitness(i,j);
 			}
 		}
 
-		fitness = cost;
-		return fitness;
+		cost = tempCost;
+		return cost;
 	}
 
 	//calcuate fitness for each period for each vehicle
@@ -216,7 +219,7 @@ public:
 	{
 		int assignedDepot;
 		assignedDepot = problemInstance.depotAllocation[vehicle];
-		double cost = 0;
+		double costForPV = 0;
 		int start,end; // marks the first and last position of corresponding route for the array permutation
 
 		if(vehicle == 0) start = 0;
@@ -243,17 +246,17 @@ public:
 				continue;
 			}
 
-			cost +=	problemInstance.costMatrix[previous+problemInstance.depotCount][clientNode+problemInstance.depotCount];
+			costForPV +=	problemInstance.costMatrix[previous+problemInstance.depotCount][clientNode+problemInstance.depotCount];
 
 			previous = clientNode;
 
 		}
 
-		cost += problemInstance.costMatrix[assignedDepot][activeStart+problemInstance.depotCount];
-		cost += problemInstance.costMatrix[activeEnd+problemInstance.depotCount][assignedDepot];
+		costForPV += problemInstance.costMatrix[assignedDepot][activeStart+problemInstance.depotCount];
+		costForPV += problemInstance.costMatrix[activeEnd+problemInstance.depotCount][assignedDepot];
 
 
-		return cost;
+		return costForPV;
 
 	}
 
@@ -424,7 +427,7 @@ public:
 		cout<< "Route partition : ";
 		for(int i=0;i<problemInstance.vehicleCount;i++)cout<< routePartition[i] <<" ";
 		cout << endl;
-		cout << "Fitness/Cost : " << fitness << endl <<endl;
+		cout << "Fitness/Cost : " << cost << endl <<endl;
 	}
 
 	void mutatePermutation(int period)
@@ -518,9 +521,16 @@ class GeneticAlgo
 	ProblemInstance problemInstance;
 	Individual population[POPULATION_SIZE];
 
+	//for storing new generated offsprings
+	Individual offspringPopulation[NUMBER_OF_OFFSPRING];
+
+	//for temporary storing
+	Individual temp[POPULATION_SIZE];
+
 	// for selection - roulette wheel
 	double fitness[POPULATION_SIZE];
 	double cdf[POPULATION_SIZE];
+
 
 public:
 	GeneticAlgo(ProblemInstance problemInstance)
@@ -542,18 +552,24 @@ public:
 
 		for(int generation=0;generation<NUMBER_OF_GENERATION;generation++)
 		{
+			//sort function uses selection sort, replace with some O(n lg n) sort algthm
+			sort(population,POPULATION_SIZE);
+
 			cout << "--------------------------\nGENERATION : "<<generation<<"\n\n";
 
-
 			//Select a parent and apply genetic operator
-			for(int i=0;i<POPULATION_SIZE;i++)
+			for(int i=0;i<NUMBER_OF_OFFSPRING;i++)
 			{
 					selectedParent=rouletteWheelSelection();
-					selectedMutationOperator = selectMutationOperator();
 
 					parent = population[selectedParent];
 					offspring.makeCopy(parent);
 
+
+					// for now not applying periodAssignment Mutation operator
+					// for now working with only MDVRP ->  period = 1
+
+					selectedMutationOperator = selectMutationOperator();
 					if(selectedMutationOperator==0)offspring.mutateRoutePartition();
 					else if (selectedMutationOperator == 1)offspring.mutatePermutation(0);//for now single period
 					else
@@ -562,22 +578,31 @@ public:
 						offspring.mutatePermutation(0);
 					}
 
-					cout << "Individual : " << selectedParent <<endl;
+					cout << "Selected Parent : " << selectedParent <<endl;
 					parent.print();
 					offspring.calculateFitness();
 					cout << "Offspring : \n";
 					offspring.print();
 
-					if(offspring.fitness<parent.fitness)
-					{
-						population[selectedParent]=offspring;
-						cout << "Offspring Chosen\n";
-					}
-					else
-					{
-						cout << "Parent Chosen\n";
-					}
+					offspringPopulation[i] = offspring;
+
 			}
+
+			//TAKE THE BEST "POPULATION_SIZE" individuals from the set of all parents and children
+			sort(offspringPopulation,NUMBER_OF_OFFSPRING);
+
+
+			int parentCursor = 0;
+			int offspringCursor = 0;
+			int newGenerationCursor = 0;
+
+			while(newGenerationCursor<POPULATION_SIZE)
+			{
+
+
+			}
+
+
 
 		}
 
@@ -592,6 +617,29 @@ public:
 
 	}
 
+	//SORT THE INDIVIDUALS ON ASCENDING ORDER OF COST
+	//BETTER INDIVIDUALS HAVE LOWER INDEX
+	//COST LESS, INDEX LESS ;-)
+	void sort(Individual* array,int length)
+	{
+		Individual temp;
+		//FOR NOW DONE SELECTION SORT
+		//AFTERWARDS REPLACE IT WITH QUICK SORT OR SOME OTHER O(n logn) sort
+		for(int i=0;i<length;i++)
+		{
+			for(int j=i+1;j<length;j++)
+			{
+				if(array[i].cost >array[j].cost)
+				{
+					temp = array[i];
+					array[i] =array[j];
+					array[j] = temp;
+				}
+			}
+		}
+
+	}
+
 	//0 -> route partition
 	//1 ->	permutation
 	//2 -> both
@@ -599,7 +647,7 @@ public:
 	{
 		return rand()%3;
 	}
-	// it also calculates fitness of every individual
+	// it also calculates cost of every individual
 	int rouletteWheelSelection()
 	{
 
@@ -611,7 +659,7 @@ public:
 		for(int i=0;i<POPULATION_SIZE;i++)
 		{
 			population[i].calculateFitness();
-			fitness[i] = population[i].fitness;
+			fitness[i] = population[i].cost;
 			sumOfCost += fitness[i];
 			cout << " "<<fitness[i];
 		}
