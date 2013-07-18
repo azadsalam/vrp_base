@@ -51,8 +51,8 @@ public:
 
 */
 
-#define POPULATION_SIZE 2
-#define NUMBER_OF_GENERATION 5
+#define POPULATION_SIZE 15
+#define NUMBER_OF_GENERATION 25
 
 int testCases ;
 ifstream in ("input.txt");
@@ -454,30 +454,36 @@ public:
 
 		//pick a red line/seperator
 		//generate random number in [0,vehicleCount-1)
-		int seperatorIndex = rand() % (problemInstance.vehicleCount-1);
-		int dir = rand() %2; // 0-> left , 1-> right
+
 
 		int distance,increment;
-		if(dir==0)//move the seperator left
-		{
-			if(seperatorIndex==0) distance = routePartition[0] ;
-			else distance = routePartition[seperatorIndex] - routePartition[seperatorIndex-1];
-			// if the line can not merge with the previous one ,
-			// difference = routePartition[seperatorIndex] - 1 - routePartition[seperatorIndex-1]
 
-			// increment should be in [1,distance]
-			if(distance==0)return;
-			increment = 1 + ( rand() % distance );
-			routePartition[seperatorIndex] -= increment;
-		}
-		else	//move the seperator right
+		while(true)
 		{
-			distance = routePartition[seperatorIndex+1] - routePartition[seperatorIndex] ;
-			if(distance==0)return;
-			increment = 1 + (rand() % distance );
-			routePartition[seperatorIndex] += increment;
-		}
+			int seperatorIndex = rand() % (problemInstance.vehicleCount-1);
+			int dir = rand() %2; // 0-> left , 1-> right
+			if(dir==0)//move the seperator left
+			{
+				if(seperatorIndex==0) distance = routePartition[0] ;
+				else distance = routePartition[seperatorIndex] - routePartition[seperatorIndex-1];
+				// if the line can not merge with the previous one ,
+				// difference = routePartition[seperatorIndex] - 1 - routePartition[seperatorIndex-1]
 
+				// increment should be in [1,distance]
+				if(distance==0)continue;
+				increment = 1 + ( rand() % distance );
+				routePartition[seperatorIndex] -= increment;
+				return;
+			}
+			else	//move the seperator right
+			{
+				distance = routePartition[seperatorIndex+1] - routePartition[seperatorIndex] ;
+				if(distance==0)continue;
+				increment = 1 + (rand() % distance );
+				routePartition[seperatorIndex] += increment;
+				return;
+			}
+		}
 
 	}
 
@@ -488,6 +494,10 @@ class GeneticAlgo
 	ProblemInstance problemInstance;
 	Individual population[POPULATION_SIZE];
 
+	// for selection - roulette wheel
+	double fitness[POPULATION_SIZE];
+	double cdf[POPULATION_SIZE];
+
 public:
 	GeneticAlgo(ProblemInstance problemInstance)
 	{
@@ -495,6 +505,9 @@ public:
 	}
 	void run()
 	{
+		int selectedParent;
+		int selectedMutationOperator;
+		Individual parent,offspring;
 		//problemInstance.print();
 
 		// INITIALISE POPULATION
@@ -502,22 +515,113 @@ public:
 
 		for(int generation=0;generation<NUMBER_OF_GENERATION;generation++)
 		{
-
-			cout << "GENERATION : "<<generation<<"\n";
-			cout << "Parent : \n";
-			population[0].print();
+			cout << "--------------------------\nGENERATION : "<<generation<<"\n\n";
 
 
-			cout << "Offspring : \n";
-			Individual offspring;
-			offspring.makeCopy(population[0]);
-			offspring.mutateRoutePartition();
-			offspring.calculateFitness();
-			offspring.print();
+			//Select a parent and apply genetic operator
+			for(int i=0;i<POPULATION_SIZE;i++)
+			{
+					selectedParent=rouletteWheelSelection();
+					selectedMutationOperator = selectMutationOperator();
 
+					parent = population[selectedParent];
+					offspring.makeCopy(parent);
 
+					if(selectedMutationOperator==0)offspring.mutateRoutePartition();
+					else if (selectedMutationOperator == 1)offspring.mutatePermutation(0);//for now single period
+					else
+					{
+						offspring.mutateRoutePartition();
+						offspring.mutatePermutation(0);
+					}
+
+					cout << "Individual : " << selectedParent <<endl;
+					parent.print();
+					offspring.calculateFitness();
+					cout << "Offspring : \n";
+					offspring.print();
+
+					if(offspring.fitness<parent.fitness)
+					{
+						population[selectedParent]=offspring;
+						cout << "Offspring Chosen\n";
+					}
+					else
+					{
+						cout << "Parent Chosen\n";
+					}
+			}
 
 		}
+
+
+		cout<<"--------------------------------------------------\n";
+		cout<<"FINAL POPULATION"<<endl;
+		for(int i=0;i<POPULATION_SIZE;i++)
+		{
+			cout<<"Individual : "<<i<<endl;
+			population[i].print();
+		}
+	}
+
+	//0 -> route partition
+	//1 ->	permutation
+	//2 -> both
+	int selectMutationOperator()
+	{
+		return rand()%3;
+	}
+	// it also calculates fitness of every individual
+	int rouletteWheelSelection()
+	{
+
+		//SELECTION -> Roulette wheel
+		double sumOfFitness = 0,sumOfCost=0;
+		double sumOfProability = 0;
+
+		cout<< "SELECTION\nCost : ";
+		for(int i=0;i<POPULATION_SIZE;i++)
+		{
+			population[i].calculateFitness();
+			fitness[i] = population[i].fitness;
+			sumOfCost += fitness[i];
+			cout << " "<<fitness[i];
+		}
+		cout <<"   Total cost : "<<sumOfCost<<endl;
+
+//		cout<< "Fitness : ";
+		for(int i=0;i<POPULATION_SIZE;i++)
+		{
+			fitness[i] = sumOfCost / fitness[i];
+			sumOfFitness += fitness[i];
+		//	cout << " "<< fitness[i];
+		}
+		//cout <<"    Total fitness : "<<sumOfFitness<<endl;
+
+		for(int i=0;i<POPULATION_SIZE;i++)
+		{
+			sumOfProability = cdf[i] = sumOfProability + ((double)fitness[i]/sumOfFitness);
+		}
+
+		double num = rand()%101; // generate random number from [0,100]
+		double indicator = num/100;
+
+		//find the smallest index i, with cdf[i] greater than indicator
+
+		int par =  findParent(indicator);
+		cout <<"Selected Parent : "<< par<<endl;
+		return par;
+
+	}
+
+	//binary search for smallest index i, having cdf[i] greater than indicator
+	int findParent(double indicator)
+	{
+		//for now linear search, do binary search later
+		for(int i=0;i<POPULATION_SIZE;i++)
+			if(cdf[i]>=indicator)
+				return i;
+		return POPULATION_SIZE-1;
 	}
 
 	void initialisePopulation()
@@ -638,8 +742,14 @@ void parseInputFile()
 int main()
 {
 	srand (time(NULL));
+	ofstream file;
+	file.open ("out.txt");
+	//streambuf* sbuf = cout.rdbuf();
+	cout.rdbuf(file.rdbuf());
+
 	cout << "VRP CPP V1" << endl;
 	parseInputFile();
+
 
 	return 0;
 }
