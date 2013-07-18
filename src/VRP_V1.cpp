@@ -51,7 +51,7 @@ public:
 
 */
 
-#define POPULATION_SIZE 15
+#define POPULATION_SIZE 10
 #define NUMBER_OF_GENERATION 25
 
 int testCases ;
@@ -487,6 +487,30 @@ public:
 
 	}
 
+
+	//returns 0 if it couldnt mutate as period == freq
+	int mutatePeriodAssignment(int clientNo)
+	{
+		//no way to mutate per. ass. as freq. == period
+		if(problemInstance.frequencyAllocation[clientNo] == problemInstance.periodCount) return 0;
+
+		int previouslyAssigned; // one period that was assigned to client
+		do
+		{
+			previouslyAssigned = rand() % problemInstance.periodCount;
+		} while (periodAssignment[previouslyAssigned][clientNo]==false);
+
+		int previouslyUnassigned;//one period that was NOT assigned to client
+		do
+		{
+			previouslyUnassigned = rand() % problemInstance.periodCount;
+		} while (periodAssignment[previouslyUnassigned][clientNo]==true);
+
+		periodAssignment[previouslyAssigned][clientNo] = false;
+		periodAssignment[previouslyUnassigned][clientNo]= true;
+
+		return 1;
+	}
 };
 
 class GeneticAlgo
@@ -508,10 +532,13 @@ public:
 		int selectedParent;
 		int selectedMutationOperator;
 		Individual parent,offspring;
+
 		//problemInstance.print();
 
 		// INITIALISE POPULATION
 		initialisePopulation();
+
+
 
 		for(int generation=0;generation<NUMBER_OF_GENERATION;generation++)
 		{
@@ -555,13 +582,14 @@ public:
 		}
 
 
-		cout<<"--------------------------------------------------\n";
+		cout<<"\n\n\n\n\n--------------------------------------------------\n";
 		cout<<"FINAL POPULATION"<<endl;
 		for(int i=0;i<POPULATION_SIZE;i++)
 		{
 			cout<<"Individual : "<<i<<endl;
 			population[i].print();
 		}
+
 	}
 
 	//0 -> route partition
