@@ -51,10 +51,10 @@ public:
 
 */
 
-#define POPULATION_SIZE 3
+#define POPULATION_SIZE 5
 #define NUMBER_OF_OFFSPRING 3
 
-#define NUMBER_OF_GENERATION 5
+#define NUMBER_OF_GENERATION 25
 
 
 int testCases ;
@@ -525,7 +525,7 @@ class GeneticAlgo
 	Individual offspringPopulation[NUMBER_OF_OFFSPRING];
 
 	//for temporary storing
-	Individual temp[POPULATION_SIZE];
+	Individual temporaryPopulation[POPULATION_SIZE];
 
 	// for selection - roulette wheel
 	double fitness[POPULATION_SIZE];
@@ -548,12 +548,12 @@ public:
 		// INITIALISE POPULATION
 		initialisePopulation();
 
+		sort(population,POPULATION_SIZE);
 
 
 		for(int generation=0;generation<NUMBER_OF_GENERATION;generation++)
 		{
 			//sort function uses selection sort, replace with some O(n lg n) sort algthm
-			sort(population,POPULATION_SIZE);
 
 			cout << "--------------------------\nGENERATION : "<<generation<<"\n\n";
 
@@ -588,19 +588,80 @@ public:
 
 			}
 
+
+			cout <<"\n\n\n\n\n---TESTING (lamba + miu)"<<endl<<endl;
+
+			//////////////////////////////////////////////////////////////////////////
+			cout <<"PRINTING PARENT POPULATION\n";
+			for(int i=0;i<POPULATION_SIZE;i++)
+			{
+				cout << "parent " << i << " :\n";
+				population[i].print();
+			}
+			cout << endl<<endl;
+			//////////////////////////////////////////////////////////////////////////////
+
 			//TAKE THE BEST "POPULATION_SIZE" individuals from the set of all parents and children
 			sort(offspringPopulation,NUMBER_OF_OFFSPRING);
 
 
-			int parentCursor = 0;
-			int offspringCursor = 0;
-			int newGenerationCursor = 0;
-
-			while(newGenerationCursor<POPULATION_SIZE)
+			//////////////////////////////////////////////////////////////////////////////
+			cout <<"PRINTING OFFSPRING POPULATION\n";
+			for(int i=0;i<NUMBER_OF_OFFSPRING;i++)
 			{
-
-
+				cout << "offspring " << i << " :\n";
+				offspringPopulation[i].print();
 			}
+			cout << endl<<endl;
+			//////////////////////////////////////////////////////////////////////////////
+
+			//first select best indivdls in the temporary array
+			//afterwards replace population with it
+			int i = 0;
+			int j = 0;
+			int cursor = 0;
+
+			while(cursor<POPULATION_SIZE)
+			{
+				if(i == POPULATION_SIZE)
+				{
+					temporaryPopulation[cursor] = offspringPopulation[j];
+					j++;
+				}
+				else if(j== NUMBER_OF_OFFSPRING)
+				{
+					temporaryPopulation[cursor] = population[i];
+					i++;
+				}
+				else if(population[i].cost <= offspringPopulation[j].cost)
+				{
+					temporaryPopulation[cursor] = population[i];
+					i++;
+				}
+				else
+				{
+					temporaryPopulation[cursor] = offspringPopulation[j];
+					j++;
+				}
+				cursor++;
+			}
+
+			//replace population with temporary array
+			for(i=0;i<POPULATION_SIZE;i++)
+			{
+				population[i] = temporaryPopulation[i];
+			}
+
+
+			//////////////////////////////////////////////////////////////////////////
+			cout <<"PRINTING NEW GENERATION\n";
+			for(int i=0;i<POPULATION_SIZE;i++)
+			{
+				cout << "parent " << i << " :\n";
+				population[i].print();
+			}
+			cout << endl<<endl;
+			//////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -829,3 +890,4 @@ int main()
 
 	return 0;
 }
+

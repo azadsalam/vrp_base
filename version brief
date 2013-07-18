@@ -1,8 +1,10 @@
 1) SELECTION OPERATOR ADDED -> ROULETTE WHEEL
 
 2) algo 
-	select parent;
-	apply one/both of the mutation operator to generate offspring
-	keep the better one among the parent and offspring
+	elitist approach
+	generate some offspring
+	take the best among both parents and offsprings to generate new generation
 	
+	
+PREVIOUS BIZZARRO NAIVE ALGO SEEMED BETTER THAN THIS ONE 
 	

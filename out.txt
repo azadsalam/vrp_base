@@ -26,83 +26,4586 @@ Printing individual 0 :
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-4 0 3 1 2 
-Route partition : 3 4 
-Fitness/Cost : 35
+2 0 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
 
 Printing individual 1 : 
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-4 2 0 1 3 
-Route partition : 4 4 
-Fitness/Cost : 26
+3 4 1 2 0 
+Route partition : 2 4 
+Fitness/Cost : 31
 
 Printing individual 2 : 
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-4 3 0 2 1 
-Route partition : 0 4 
+3 2 0 4 1 
+Route partition : 3 4 
+Fitness/Cost : 35
+
+Printing individual 3 : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+Printing individual 4 : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 2 4 
 Fitness/Cost : 27
 
 --------------------------
 GENERATION : 0
 
 SELECTION
-Cost :  26 27 35   Total cost : 88
-Selected Parent : 2
-Selected Parent : 2
+Cost :  23 27 27 31 35   Total cost : 143
+Selected Parent : 1
+Selected Parent : 1
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-4 0 3 1 2 
-Route partition : 3 4 
-Fitness/Cost : 35
+2 0 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
 
 Offspring : 
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-2 0 3 1 4 
+4 0 2 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+SELECTION
+Cost :  23 27 27 31 35   Total cost : 143
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+SELECTION
+Cost :  23 27 27 31 35   Total cost : 143
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 4 1 2 0 
+Route partition : 2 4 
+Fitness/Cost : 31
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 2 0 4 1 
+Route partition : 3 4 
+Fitness/Cost : 35
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 0 2 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+
+
+--------------------------
+GENERATION : 1
+
+SELECTION
+Cost :  19 19 23 27 27   Total cost : 115
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 2 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+SELECTION
+Cost :  19 19 23 27 27   Total cost : 115
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+SELECTION
+Cost :  19 19 23 27 27   Total cost : 115
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 2 4 1 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+
+
+--------------------------
+GENERATION : 2
+
+SELECTION
+Cost :  19 19 19 23 26   Total cost : 106
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 4 2 0 
+Route partition : 1 4 
+Fitness/Cost : 31
+
+SELECTION
+Cost :  19 19 19 23 26   Total cost : 106
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+SELECTION
+Cost :  19 19 19 23 26   Total cost : 106
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 2 4 
+Fitness/Cost : 31
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 4 2 0 
+Route partition : 1 4 
+Fitness/Cost : 31
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 2 4 
+Fitness/Cost : 31
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+
+
+--------------------------
+GENERATION : 3
+
+SELECTION
+Cost :  19 19 19 19 23   Total cost : 99
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+SELECTION
+Cost :  19 19 19 19 23   Total cost : 99
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 0 4 
+Fitness/Cost : 31
+
+SELECTION
+Cost :  19 19 19 19 23   Total cost : 99
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 0 4 
+Fitness/Cost : 23
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 0 4 
+Fitness/Cost : 23
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 0 4 
+Fitness/Cost : 31
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+
+
+--------------------------
+GENERATION : 4
+
+SELECTION
+Cost :  19 19 19 19 23   Total cost : 99
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  19 19 19 19 23   Total cost : 99
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+SELECTION
+Cost :  19 19 19 19 23   Total cost : 99
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 4 2 0 
+Route partition : 1 4 
+Fitness/Cost : 31
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 0 4 2 1 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 4 2 0 
+Route partition : 1 4 
+Fitness/Cost : 31
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+--------------------------
+GENERATION : 5
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 3 0 
+Route partition : 3 4 
+Fitness/Cost : 27
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 4 2 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 4 2 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 3 0 
+Route partition : 3 4 
+Fitness/Cost : 27
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+--------------------------
+GENERATION : 6
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 3 4 
+Fitness/Cost : 27
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 3 0 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 3 0 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 3 4 
+Fitness/Cost : 27
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+--------------------------
+GENERATION : 7
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
 Route partition : 0 4 
 Fitness/Cost : 23
 
 SELECTION
-Cost :  26 27 35   Total cost : 88
-Selected Parent : 2
-Selected Parent : 2
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 4
+Selected Parent : 4
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-4 0 3 1 2 
-Route partition : 3 4 
-Fitness/Cost : 35
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
 
 Offspring : 
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-1 0 3 4 2 
+2 1 4 0 3 
+Route partition : 0 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 0 4 
+Fitness/Cost : 23
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 0 4 
+Fitness/Cost : 23
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+--------------------------
+GENERATION : 8
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 4 2 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+SELECTION
+Cost :  15 19 19 19 19   Total cost : 91
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 2 1 0 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 4 2 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 2 1 0 3 
+Route partition : 2 4 
+Fitness/Cost : 27
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+--------------------------
+GENERATION : 9
+
+SELECTION
+Cost :  15 15 19 19 19   Total cost : 87
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 3 0 
 Route partition : 3 4 
 Fitness/Cost : 27
 
 SELECTION
-Cost :  26 27 35   Total cost : 88
-Selected Parent : 1
-Selected Parent : 1
+Cost :  15 15 19 19 19   Total cost : 87
+Selected Parent : 2
+Selected Parent : 2
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-4 3 0 2 1 
-Route partition : 0 4 
-Fitness/Cost : 27
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
 
 Offspring : 
 PERIOD ASSIGMENT : 
 1 1 1 1 1 
 Permutation : 
-4 2 0 3 1 
+2 0 1 4 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+SELECTION
+Cost :  15 15 19 19 19   Total cost : 87
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
 Route partition : 4 4 
-Fitness/Cost : 30
+Fitness/Cost : 22
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 1 4 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 3 0 
+Route partition : 3 4 
+Fitness/Cost : 27
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+--------------------------
+GENERATION : 10
+
+SELECTION
+Cost :  15 15 19 19 19   Total cost : 87
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+SELECTION
+Cost :  15 15 19 19 19   Total cost : 87
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+SELECTION
+Cost :  15 15 19 19 19   Total cost : 87
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 19
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 3 1 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+--------------------------
+GENERATION : 11
+
+SELECTION
+Cost :  7 15 15 15 19   Total cost : 71
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 1 0 2 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+SELECTION
+Cost :  7 15 15 15 19   Total cost : 71
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+SELECTION
+Cost :  7 15 15 15 19   Total cost : 71
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 1 0 2 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 12
+
+SELECTION
+Cost :  7 15 15 15 15   Total cost : 67
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+SELECTION
+Cost :  7 15 15 15 15   Total cost : 67
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 3 4 0 1 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 15 15 15 15   Total cost : 67
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 3 4 0 1 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 13
+
+SELECTION
+Cost :  7 15 15 15 15   Total cost : 67
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 0 4 2 
+Route partition : 3 4 
+Fitness/Cost : 31
+
+SELECTION
+Cost :  7 15 15 15 15   Total cost : 67
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 1 0 3 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 15 15 15 15   Total cost : 67
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 1 0 3 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 0 4 2 
+Route partition : 3 4 
+Fitness/Cost : 31
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 14
+
+SELECTION
+Cost :  7 14 15 15 15   Total cost : 66
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+SELECTION
+Cost :  7 14 15 15 15   Total cost : 66
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 1 0 3 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 15 15 15   Total cost : 66
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 1 0 3 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 15
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 3 0 4 1 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 0 4 
+Fitness/Cost : 15
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 0 4 
+Fitness/Cost : 15
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 0 4 
+Fitness/Cost : 15
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 0 4 
+Fitness/Cost : 15
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 3 0 4 1 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 16
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 3 0 4 1 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 1 4 3 
+Route partition : 4 4 
+Fitness/Cost : 18
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 1 4 3 
+Route partition : 4 4 
+Fitness/Cost : 18
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 3 0 4 1 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 17
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 3 0 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 0 4 2 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 3 4 0 1 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 3 0 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 0 4 2 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 3 4 0 1 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 18
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 1 4 3 
+Route partition : 4 4 
+Fitness/Cost : 18
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 3 0 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 0 4 
+Fitness/Cost : 15
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 0 4 
+Fitness/Cost : 15
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 1 4 3 
+Route partition : 4 4 
+Fitness/Cost : 18
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 3 0 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 19
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 0 4 2 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 1 2 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 0 1 3 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 0 4 2 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 0 1 3 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 1 2 0 3 
+Route partition : 4 4 
+Fitness/Cost : 26
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 20
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 0 4 2 
+Route partition : 0 4 
+Fitness/Cost : 31
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 1 4 
+Fitness/Cost : 19
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 0 4 2 
+Route partition : 0 4 
+Fitness/Cost : 31
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 21
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 1 4 3 
+Route partition : 2 4 
+Fitness/Cost : 15
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 4 2 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+SELECTION
+Cost :  7 14 14 15 15   Total cost : 65
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 4 2 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 1 4 3 
+Route partition : 2 4 
+Fitness/Cost : 15
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 22
+
+SELECTION
+Cost :  7 14 14 14 15   Total cost : 64
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 0 1 3 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 14 14 15   Total cost : 64
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 14 14 15   Total cost : 64
+Selected Parent : 3
+Selected Parent : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 18
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 18
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 0 4 1 3 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 0 1 3 
+Route partition : 1 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+--------------------------
+GENERATION : 23
+
+SELECTION
+Cost :  7 14 14 14 15   Total cost : 64
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 1 0 2 3 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 14 14 14 15   Total cost : 64
+Selected Parent : 2
+Selected Parent : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 0 1 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+SELECTION
+Cost :  7 14 14 14 15   Total cost : 64
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 4 0 3 
+Route partition : 3 4 
+Fitness/Cost : 15
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 4 0 1 3 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+4 1 0 2 3 
+Route partition : 2 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+
+
+--------------------------
+GENERATION : 24
+
+SELECTION
+Cost :  7 7 14 14 14   Total cost : 56
+Selected Parent : 0
+Selected Parent : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+SELECTION
+Cost :  7 7 14 14 14   Total cost : 56
+Selected Parent : 4
+Selected Parent : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 2 4 0 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+SELECTION
+Cost :  7 7 14 14 14   Total cost : 56
+Selected Parent : 1
+Selected Parent : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Offspring : 
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+
+
+
+
+
+---TESTING (lamba + miu)
+
+PRINTING PARENT POPULATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+
+
+PRINTING OFFSPRING POPULATION
+offspring 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+offspring 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+3 1 2 4 0 
+Route partition : 4 4 
+Fitness/Cost : 22
+
+offspring 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+1 2 0 4 3 
+Route partition : 3 4 
+Fitness/Cost : 23
+
+
+
+PRINTING NEW GENERATION
+parent 0 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 1 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+parent 2 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 3 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+parent 4 :
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+
+
+
+
+
+
+
+--------------------------------------------------
+FINAL POPULATION
+Individual : 0
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Individual : 1
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+0 1 2 4 3 
+Route partition : 2 4 
+Fitness/Cost : 7
+
+Individual : 2
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Individual : 3
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 0 4 3 
+Route partition : 4 4 
+Fitness/Cost : 14
+
+Individual : 4
+PERIOD ASSIGMENT : 
+1 1 1 1 1 
+Permutation : 
+2 1 3 4 0 
+Route partition : 4 4 
+Fitness/Cost : 14
 
