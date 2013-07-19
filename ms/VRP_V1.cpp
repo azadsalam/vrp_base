@@ -4,10 +4,10 @@
 #include <ctime>
 using namespace std;
 
-#define POPULATION_SIZE 5
-#define NUMBER_OF_OFFSPRING 5
+#define POPULATION_SIZE 20
+#define NUMBER_OF_OFFSPRING 15
 
-#define NUMBER_OF_GENERATION 5
+#define NUMBER_OF_GENERATION 20
 
 int testCases ;
 ifstream in ("input.txt");
@@ -33,7 +33,7 @@ public:
 	double* loadCapacity; // kon vehicle max koto load nite parbe
 	double* serviceTime;  // kon client kototuk time lage service pete
 	double* demand; 	  // kon client koto demand
-	//double** timeConstraintsOfVehicles; // periodCount * vehicleCount
+	double** timeConstraintsOfVehicles; // periodCount * vehicleCount
 void print()
 {
     int i,j;
@@ -53,7 +53,7 @@ void print()
 	for( i=0;i<vehicleCount;i++) cout << loadCapacity[i] << " ";
 	cout<< endl;
 
-/*
+
     cout<<"Time constraints for vehicles : "<<endl;
     for( i=0;i<periodCount;i++)
     {
@@ -64,7 +64,7 @@ void print()
         cout<<endl;
     }
     cout<<endl;
-    */
+    
 
 	cout<<"Clients : "<<customerCount<<endl;
 
@@ -289,7 +289,7 @@ public:
 
 		//initialize period assignment
 
-		int freq,allocated,random,tmp,j;
+		int freq,allocated,random,tmp;
 
 		//Randomly allocate period to clients equal to their frequencies
 		for(int client=0; client < problemInstance.customerCount; client++)
@@ -353,7 +353,7 @@ public:
 
 
 		loadViolation = new double*[problemInstance.periodCount];
-		for(int period=0; period < problemInstance.periodCount;period++)
+		for( period=0; period < problemInstance.periodCount;period++)
         {
             loadViolation[period] = new double[problemInstance.vehicleCount];
         }
@@ -404,10 +404,11 @@ public:
 
 	void print()
 	{
-		/*cout << "PERIOD ASSIGMENT : \n";
-		for(int i=0;i<problemInstance.periodCount;i++)
+		int i,j;
+		cout << "PERIOD ASSIGMENT : \n";
+		for( i=0;i<problemInstance.periodCount;i++)
 		{
-			for(int j=0;j<problemInstance.customerCount;j++)
+			for( j=0;j<problemInstance.customerCount;j++)
 			{
 				cout<<periodAssignment[i][j]<<" ";
 			}
@@ -415,9 +416,9 @@ public:
 		}
 
 		cout << "Permutation : \n";
-		for(int i=0; i<problemInstance.periodCount;i++)
+		for( i=0; i<problemInstance.periodCount;i++)
 		{
-			for(int j=0;j<problemInstance.customerCount;j++)
+			for( j=0;j<problemInstance.customerCount;j++)
 			{
 				cout << permutation[i][j]<<" ";
 			}
@@ -425,21 +426,21 @@ public:
 		}
 
 		cout<< "Route partition : ";
-		for(int i=0;i<problemInstance.vehicleCount;i++)cout<< routePartition[i] <<" ";
+		for( i=0;i<problemInstance.vehicleCount;i++)cout<< routePartition[i] <<" ";
 		cout << endl;
 
         // print load violation
 
 		cout<<endl<<endl<<"LOAD VIOLATION MATRIX : \n";
-        for(int i=0;i<problemInstance.periodCount;i++)
+        for( i=0;i<problemInstance.periodCount;i++)
         {
-            for(int j=0;j<problemInstance.vehicleCount;j++)
+            for( j=0;j<problemInstance.vehicleCount;j++)
             {
                 cout << loadViolation[i][j]<<" ";
             }
             cout<<endl;
         }
-        cout<<"Total Load Violation : "<<totalLoadViolation<<endl;*/
+        cout<<"Total Load Violation : "<<totalLoadViolation<<endl;
 
 
 		cout << "\nFitness/Cost : " << cost << endl <<endl;
@@ -450,9 +451,12 @@ public:
 		int first = rand() % problemInstance.customerCount;
 
 		int second;
+		int count=0;
 		do
 		{
 			second = rand() % problemInstance.customerCount;
+			count++;
+			if(count==problemInstance.customerCount)break;
 		}
 		while(periodAssignment[period][second]==false || second == first);
 
@@ -575,6 +579,7 @@ public:
 			//Select a parent and apply genetic operator
 			for( i=0;i<NUMBER_OF_OFFSPRING;i++)
 			{
+
 					selectedParent=rouletteWheelSelection();
 
 					parent = population[selectedParent];
@@ -855,7 +860,7 @@ void parseInputFile()
 		}
 		escapeComment();
 
-        /*
+        
         //time constraints
         escapeComment(); // escape the line "; t(total period) lines containg  v (total vehicle)
                          //values each referring maximum time limit for that day for that vehicle (NEW)"
@@ -871,7 +876,7 @@ void parseInputFile()
                 in>>problemInstance.timeConstraintsOfVehicles[i][j];
             }
         }
-            */
+            
 		//CLIENT COUNT
 		in>>problemInstance.customerCount;
 		escapeComment();
@@ -920,8 +925,8 @@ void parseInputFile()
 
 int main()
 {
-	//srand (time(NULL));
-	srand(1);
+	srand (time(NULL));
+	//srand(1);
 	ofstream file;
 	file.open ("out.txt");
 	streambuf* sbuf = cout.rdbuf();

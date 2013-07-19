@@ -4,11 +4,23 @@
 5 ; number of total vehicles
 3 2 ; number of vehicle per depot
 10 10 10 10 10; Maximum allowable load of each vehicle 
+; t(total period) lines containg  v (total vehicle) values each referring maximum time limit for that day for that vehicle (NEW)
+1 2 3 4 5
+6 7 8 9 10
+11 12 13 14 15
 5 ; number of clients
 1 1 1 1 1 ; frequency
 5 5 5 5 5 ; service time for every client 
 3 3 3 3 3 ; demand for every client 
 ; COST MATRIX
+0 5 1 5 1 5 5
+5 0 5 5 5 1 1
+1 5 0 1 5 5 5
+5 5 1 0 1 5 5
+1 5 5 1 0 5 5
+5 1 5 5 5 0 1
+5 1 5 5 5 1 0
+; TRAVELLING TIME MATRIX (NEW)
 0 5 1 5 1 5 5
 5 0 5 5 5 1 1
 1 5 0 1 5 5 5
