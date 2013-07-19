@@ -51,10 +51,10 @@ public:
 
 */
 
-#define POPULATION_SIZE 5
-#define NUMBER_OF_OFFSPRING 3
+#define POPULATION_SIZE 3
+#define NUMBER_OF_OFFSPRING 2
 
-#define NUMBER_OF_GENERATION 25
+#define NUMBER_OF_GENERATION 5
 
 
 int testCases ;
@@ -114,8 +114,6 @@ void print()
 	for(int i =0;i<customerCount ;i++) cout << demand[i] << " ";
 	cout <<endl;
 
-
-
 	cout<< "Printing cost matrix : \n";
 
 	for(int row=0;row<nodeCount;row++)
@@ -140,6 +138,9 @@ public:
 	bool isFeasible;
 	bool feasibilitySet;
 
+	double** loadViolation;
+	double totalLoadViolation;
+
 	ProblemInstance problemInstance;
 
 
@@ -154,6 +155,7 @@ public:
 	}
 
 	// make a copy cat individual
+	//copies problem instance, periodAssignment, permutation, routePartition
 	void makeCopy(Individual original)
 	{
 		this->problemInstance = original.problemInstance;
@@ -194,18 +196,33 @@ public:
 		cost = original.cost;
 		isFeasible = original.isFeasible;
 
+		//allocate demanViolationMatrix
+        loadViolation = new double*[problemInstance.periodCount];
+		for(int period=0; period < problemInstance.periodCount;period++)
+        {
+            loadViolation[period] = new double[problemInstance.vehicleCount];
+        }
+
 	}
 	//calculate and return fitness of individual
 	double calculateFitness()
 	{
 		double tempCost = 0;
+
+		totalLoadViolation = 0;
+        double temlLoad;
 		for(int i=0;i<problemInstance.periodCount;i++)
 		{
 			for(int j=0;j<problemInstance.vehicleCount;j++)
 			{
 				tempCost += calculateFitness(i,j);
+                //calculate the total load violation
+                //Add only when actually the load is violated i.e. violation is positive
+                if(loadViolation[i][j]>0) totalLoadViolation += loadViolation[i][j];
 			}
 		}
+
+
 
 		cost = tempCost;
 		return cost;
@@ -231,7 +248,7 @@ public:
 
 		int activeStart=-1,activeEnd,previous=-1,clientNode;
 
-
+        double clientDemand=0;
 		for(int i=start;i<=end;i++)
 		{
 			clientNode = permutation[period][i];
@@ -239,6 +256,9 @@ public:
 
 			if(activeStart == -1) activeStart = clientNode;
 			activeEnd = clientNode;
+
+            //Caluculate total client demand for corresponding period,vehicle
+            clientDemand += problemInstance.demand[clientNode];
 
 			if(previous == -1)
 			{
@@ -255,6 +275,7 @@ public:
 		costForPV += problemInstance.costMatrix[assignedDepot][activeStart+problemInstance.depotCount];
 		costForPV += problemInstance.costMatrix[activeEnd+problemInstance.depotCount][assignedDepot];
 
+        loadViolation[period][vehicle] = clientDemand - problemInstance.loadCapacity[vehicle];
 
 		return costForPV;
 
@@ -358,6 +379,13 @@ public:
 		}
 		routePartition[problemInstance.vehicleCount-1] = problemInstance.customerCount-1;
 
+
+		loadViolation = new double*[problemInstance.periodCount];
+		for(int period=0; period < problemInstance.periodCount;period++)
+        {
+            loadViolation[period] = new double[problemInstance.vehicleCount];
+        }
+
 		calculateFitness();
 	}
 
@@ -427,7 +455,20 @@ public:
 		cout<< "Route partition : ";
 		for(int i=0;i<problemInstance.vehicleCount;i++)cout<< routePartition[i] <<" ";
 		cout << endl;
-		cout << "Fitness/Cost : " << cost << endl <<endl;
+
+        // print load violation
+		cout<<endl<<endl<<"LOAD VIOLATION MATRIX : \n";
+        for(int i=0;i<problemInstance.periodCount;i++)
+        {
+            for(int j=0;j<problemInstance.vehicleCount;j++)
+            {
+                cout << loadViolation[i][j]<<" ";
+            }
+        }
+        cout<<"\nTotal Load Violation : "<<totalLoadViolation<<endl;
+
+
+		cout << "\nFitness/Cost : " << cost << endl <<endl;
 	}
 
 	void mutatePermutation(int period)
@@ -540,7 +581,7 @@ public:
 	void run()
 	{
 		int selectedParent;
-		int selectedMutationOperator;
+
 		Individual parent,offspring;
 
 		//problemInstance.print();
@@ -566,18 +607,7 @@ public:
 					offspring.makeCopy(parent);
 
 
-					// for now not applying periodAssignment Mutation operator
-					// for now working with only MDVRP ->  period = 1
-
-					selectedMutationOperator = selectMutationOperator();
-					if(selectedMutationOperator==0)offspring.mutateRoutePartition();
-					else if (selectedMutationOperator == 1)offspring.mutatePermutation(0);//for now single period
-					else
-					{
-						offspring.mutateRoutePartition();
-						offspring.mutatePermutation(0);
-					}
-
+					applyMutation(offspring);
 					cout << "Selected Parent : " << selectedParent <<endl;
 					parent.print();
 					offspring.calculateFitness();
@@ -678,6 +708,32 @@ public:
 
 	}
 
+
+	// for now not applying periodAssignment Mutation operator
+	// for now working with only MDVRP ->  period = 1
+	void applyMutation(Individual offspring)
+	{
+
+
+		int selectedMutationOperator = selectMutationOperator();
+		if(selectedMutationOperator==0)offspring.mutateRoutePartition();
+		else if (selectedMutationOperator == 1)offspring.mutatePermutation(0);//for now single period
+		else
+		{
+			offspring.mutateRoutePartition();
+			offspring.mutatePermutation(0);
+		}
+
+	}
+
+	//0 -> route partition
+	//1 ->	permutation
+	//2 -> both
+	int selectMutationOperator()
+	{
+		return rand()%3;
+	}
+
 	//SORT THE INDIVIDUALS ON ASCENDING ORDER OF COST
 	//BETTER INDIVIDUALS HAVE LOWER INDEX
 	//COST LESS, INDEX LESS ;-)
@@ -701,13 +757,7 @@ public:
 
 	}
 
-	//0 -> route partition
-	//1 ->	permutation
-	//2 -> both
-	int selectMutationOperator()
-	{
-		return rand()%3;
-	}
+
 	// it also calculates cost of every individual
 	int rouletteWheelSelection()
 	{

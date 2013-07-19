@@ -1,0 +1,23 @@
+1 ; number of test cases
+1 ; number of periods
+2 ; number of depots
+2 ; number of total vehicles
+1 1 ; number of vehicle per depot
+10 10 ; Maximum allowable load of each vehicle (NEW)
+5 ; number of clients
+1 1 1 1 1 ; frequency
+5 5 5 5 5 ; service time for every client (NEW)
+3 3 3 3 3 ; demand for every client (NEW)
+0 5 1 5 1 5 5
+5 0 5 5 5 1 1
+1 5 0 1 5 5 5
+5 5 1 0 1 5 5
+1 5 5 1 0 5 5
+5 1 5 5 5 0 1
+5 1 5 5 5 1 0
+
+
+
+
+
+
