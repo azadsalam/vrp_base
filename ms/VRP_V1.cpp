@@ -4,13 +4,13 @@
 #include <ctime>
 using namespace std;
 
-#define POPULATION_SIZE 5
-#define NUMBER_OF_OFFSPRING 5
+#define POPULATION_SIZE 300
+#define NUMBER_OF_OFFSPRING 150
 
-#define NUMBER_OF_GENERATION 5
-
+#define NUMBER_OF_GENERATION 500
 int testCases ;
-ifstream in ("input.txt");
+//FILE
+ifstream in ("input02.txt");
 
 
 void escapeComment()
@@ -26,6 +26,7 @@ public:
 	int depotCount,customerCount,periodCount;
 	int* vehicleAllocation; // kon depot er koyta kore vehicle
 	double **costMatrix;
+	double **travellingTimeMatrix;
 	int nodeCount;
 	int *frequencyAllocation;
 	int vehicleCount;
@@ -33,9 +34,11 @@ public:
 	double* loadCapacity; // kon vehicle max koto load nite parbe
 	double* serviceTime;  // kon client kototuk time lage service pete
 	double* demand; 	  // kon client koto demand
-	//double** timeConstraintsOfVehicles; // periodCount * vehicleCount
+	double** timeConstraintsOfVehicles; // periodCount * vehicleCount
+	
 void print()
 {
+
     int i,j;
 	cout<<"Period : "<<periodCount<<endl;
 	cout<< "Number of depots : " <<depotCount <<endl;
@@ -53,7 +56,7 @@ void print()
 	for( i=0;i<vehicleCount;i++) cout << loadCapacity[i] << " ";
 	cout<< endl;
 
-/*
+
     cout<<"Time constraints for vehicles : "<<endl;
     for( i=0;i<periodCount;i++)
     {
@@ -64,7 +67,7 @@ void print()
         cout<<endl;
     }
     cout<<endl;
-    */
+    
 
 	cout<<"Clients : "<<customerCount<<endl;
 
@@ -82,10 +85,21 @@ void print()
 
 	cout<< "Printing cost matrix : \n";
 
-	for(int row=0;row<nodeCount;row++)
+	int row,col;
+	for( row=0;row<nodeCount;row++)
 	{
-		for(int col=0;col<nodeCount;col++)
+		for( col=0;col<nodeCount;col++)
 			cout<<costMatrix[row][col]<<" ";
+		cout<<endl;
+	}
+	cout<<endl;
+
+	cout<< "Printing travelling time matrix : \n";
+
+	for( row=0;row<nodeCount;row++)
+	{
+		for( col=0;col<nodeCount;col++)
+			cout<<travellingTimeMatrix[row][col]<<" ";
 		cout<<endl;
 	}
 	cout<<endl;
@@ -106,6 +120,10 @@ public:
 	double** loadViolation;
 	double totalLoadViolation;
 
+	//double totalRouteTime;
+	
+	double totalRouteTimeViolation;
+	
 	ProblemInstance problemInstance;
 
 
@@ -119,7 +137,7 @@ public:
 		isFeasible = false;
 
 		loadViolation = NULL;
-
+	
 	}
 
 	// make a copy cat individual
@@ -173,14 +191,19 @@ public:
             loadViolation[period] = new double[problemInstance.vehicleCount];
         }
 
+
+
+
 	}
 	//calculate and return fitness of individual
 	double calculateFitness()
 	{
 		double tempCost = 0;
 
-		//totalLoadViolation = 0;
-        double temlLoad;
+		totalLoadViolation = 0;
+		totalRouteTimeViolation = 0;
+        
+		double temlLoad;
 		for(int i=0;i<problemInstance.periodCount;i++)
 		{
 			for(int j=0;j<problemInstance.vehicleCount;j++)
@@ -191,6 +214,9 @@ public:
                 if(loadViolation[i][j]>0) totalLoadViolation += loadViolation[i][j];
 			}
 		}
+
+
+
 
 		cost = tempCost;
 		return cost;
@@ -217,6 +243,7 @@ public:
 		int activeStart=-1,activeEnd=-1,previous=-1,clientNode;
 
         double clientDemand=0;
+		double totalRouteTime=0;
 		for(int i=start;i<=end;i++)
 		{
 			clientNode = permutation[period][i];
@@ -224,6 +251,8 @@ public:
 
 			if(activeStart == -1) activeStart = clientNode;
 			activeEnd = clientNode;
+
+			totalRouteTime += problemInstance.serviceTime[clientNode]; //adding service time for that node
 
             //Caluculate total client demand for corresponding period,vehicle
             clientDemand += problemInstance.demand[clientNode];
@@ -235,7 +264,7 @@ public:
 			}
 
 			costForPV +=	problemInstance.costMatrix[previous+problemInstance.depotCount][clientNode+problemInstance.depotCount];
-
+			totalRouteTime += problemInstance.travellingTimeMatrix[previous+problemInstance.depotCount][clientNode+problemInstance.depotCount];
 			previous = clientNode;
 
 		}
@@ -244,8 +273,15 @@ public:
         {
             costForPV += problemInstance.costMatrix[assignedDepot][activeStart+problemInstance.depotCount];
             costForPV += problemInstance.costMatrix[activeEnd+problemInstance.depotCount][assignedDepot];
+
+			totalRouteTime += problemInstance.travellingTimeMatrix[assignedDepot][activeStart+problemInstance.depotCount];
+            totalRouteTime += problemInstance.travellingTimeMatrix[activeEnd+problemInstance.depotCount][assignedDepot];
         }
         loadViolation[period][vehicle] = clientDemand - problemInstance.loadCapacity[vehicle];
+
+		double routeTimeViolation = totalRouteTime - problemInstance.timeConstraintsOfVehicles[period][vehicle] ;
+
+		if(routeTimeViolation>0) totalRouteTimeViolation += routeTimeViolation;
 
 		return costForPV;
 
@@ -289,7 +325,7 @@ public:
 
 		//initialize period assignment
 
-		int freq,allocated,random,tmp,j;
+		int freq,allocated,random,tmp;
 
 		//Randomly allocate period to clients equal to their frequencies
 		for(int client=0; client < problemInstance.customerCount; client++)
@@ -353,7 +389,7 @@ public:
 
 
 		loadViolation = new double*[problemInstance.periodCount];
-		for(int period=0; period < problemInstance.periodCount;period++)
+		for( period=0; period < problemInstance.periodCount;period++)
         {
             loadViolation[period] = new double[problemInstance.vehicleCount];
         }
@@ -404,10 +440,12 @@ public:
 
 	void print()
 	{
-		/*cout << "PERIOD ASSIGMENT : \n";
-		for(int i=0;i<problemInstance.periodCount;i++)
+		/*
+		int i,j;
+		cout << "PERIOD ASSIGMENT : \n";
+		for( i=0;i<problemInstance.periodCount;i++)
 		{
-			for(int j=0;j<problemInstance.customerCount;j++)
+			for( j=0;j<problemInstance.customerCount;j++)
 			{
 				cout<<periodAssignment[i][j]<<" ";
 			}
@@ -415,9 +453,9 @@ public:
 		}
 
 		cout << "Permutation : \n";
-		for(int i=0; i<problemInstance.periodCount;i++)
+		for( i=0; i<problemInstance.periodCount;i++)
 		{
-			for(int j=0;j<problemInstance.customerCount;j++)
+			for( j=0;j<problemInstance.customerCount;j++)
 			{
 				cout << permutation[i][j]<<" ";
 			}
@@ -425,24 +463,25 @@ public:
 		}
 
 		cout<< "Route partition : ";
-		for(int i=0;i<problemInstance.vehicleCount;i++)cout<< routePartition[i] <<" ";
+		for( i=0;i<problemInstance.vehicleCount;i++)cout<< routePartition[i] <<" ";
 		cout << endl;
 
         // print load violation
 
 		cout<<endl<<endl<<"LOAD VIOLATION MATRIX : \n";
-        for(int i=0;i<problemInstance.periodCount;i++)
+        for( i=0;i<problemInstance.periodCount;i++)
         {
-            for(int j=0;j<problemInstance.vehicleCount;j++)
+            for( j=0;j<problemInstance.vehicleCount;j++)
             {
                 cout << loadViolation[i][j]<<" ";
             }
             cout<<endl;
         }
-        cout<<"Total Load Violation : "<<totalLoadViolation<<endl;*/
 
-
-		cout << "\nFitness/Cost : " << cost << endl <<endl;
+		*/
+        cout<<"Total Load Violation : "<<totalLoadViolation<<endl;
+		cout<<"Total route time violation : "<<totalRouteTimeViolation<<endl;
+		cout << "Fitness/Cost : " << cost << endl <<endl;
 	}
 
 	void mutatePermutation(int period)
@@ -450,9 +489,12 @@ public:
 		int first = rand() % problemInstance.customerCount;
 
 		int second;
+		int count=0;
 		do
 		{
 			second = rand() % problemInstance.customerCount;
+			count++;
+			if(count==problemInstance.customerCount)break;
 		}
 		while(periodAssignment[period][second]==false || second == first);
 
@@ -511,6 +553,7 @@ public:
 	{
 		//no way to mutate per. ass. as freq. == period
 		if(problemInstance.frequencyAllocation[clientNo] == problemInstance.periodCount) return 0;
+		if(problemInstance.frequencyAllocation[clientNo] == 0) return 0;		
 
 		int previouslyAssigned; // one period that was assigned to client
 		do
@@ -546,11 +589,15 @@ class GeneticAlgo
 	double fitness[POPULATION_SIZE];
 	double cdf[POPULATION_SIZE];
 
+	double loadPenaltyFactor;
+	double routeTimePenaltyFactor;
 
 public:
 	GeneticAlgo(ProblemInstance problemInstance)
 	{
 		this -> problemInstance = problemInstance;
+		loadPenaltyFactor = 0.6;
+		routeTimePenaltyFactor = 0.6;
 	}
 	void run()
 	{
@@ -570,32 +617,34 @@ public:
 		{
 			//sort function uses selection sort, replace with some O(n lg n) sort algthm
 
-			cout << "--------------------------\nGENERATION : "<<generation<<"\n\n";
+			//cout << "--------------------------\nGENERATION : "<<generation<<"\n";
 
 			//Select a parent and apply genetic operator
 			for( i=0;i<NUMBER_OF_OFFSPRING;i++)
 			{
-					selectedParent=rouletteWheelSelection();
+
+					selectedParent=rouletteWheelSelection(generation);
 
 					parent = population[selectedParent];
 					offspring.makeCopy(parent);
 
 
 					applyMutation(offspring);
-					cout << "Selected Parent : " << selectedParent <<endl;
-					parent.print();
+					//cout << "Selected Parent : " << selectedParent <<endl;
+					//parent.print();
 					offspring.calculateFitness();
-					cout << "Offspring : \n";
-					offspring.print();
+					//cout << "Offspring : "<<i<<"\n";
+					//offspring.print();
 
 					offspringPopulation[i] = offspring;
 
 			}
 
 
-			cout <<"\n\n\n\n\n---TESTING (lamba + miu)"<<endl<<endl;
+			//cout <<"\n\n\n\n\n---TESTING (lamba + miu)"<<endl<<endl;
 
 			//////////////////////////////////////////////////////////////////////////
+			/*
 			cout <<"PRINTING PARENT POPULATION\n";
 			for( i=0;i<POPULATION_SIZE;i++)
 			{
@@ -603,6 +652,7 @@ public:
 				population[i].print();
 			}
 			cout << endl<<endl;
+			*/
 			//////////////////////////////////////////////////////////////////////////////
 
 			//TAKE THE BEST "POPULATION_SIZE" individuals from the set of all parents and children
@@ -610,6 +660,7 @@ public:
 
 
 			//////////////////////////////////////////////////////////////////////////////
+			/*
 			cout <<"PRINTING OFFSPRING POPULATION\n";
 			for( i=0;i<NUMBER_OF_OFFSPRING;i++)
 			{
@@ -617,6 +668,7 @@ public:
 				offspringPopulation[i].print();
 			}
 			cout << endl<<endl;
+			*/
 			//////////////////////////////////////////////////////////////////////////////
 
 			//first select best indivdls in the temporary array
@@ -658,6 +710,7 @@ public:
 
 
 			//////////////////////////////////////////////////////////////////////////
+			/*
 			cout <<"PRINTING NEW GENERATION\n";
 			for( i=0;i<POPULATION_SIZE;i++)
 			{
@@ -665,6 +718,7 @@ public:
 				population[i].print();
 			}
 			cout << endl<<endl;
+			*/
 			//////////////////////////////////////////////////////////////////////////////
 
 
@@ -687,22 +741,29 @@ public:
 	// for now working with only MDVRP ->  period = 1
 	void applyMutation(Individual offspring)
 	{
-
-
 		int selectedMutationOperator = selectMutationOperator();
 		if(selectedMutationOperator==0)offspring.mutateRoutePartition();
-		else if (selectedMutationOperator == 1)offspring.mutatePermutation(0);//for now single period
-		else
+		else if (selectedMutationOperator == 1)
 		{
-			offspring.mutateRoutePartition();
-			offspring.mutatePermutation(0);
+			int period = rand()%problemInstance.periodCount;
+			offspring.mutatePermutation(period);//for now single period
 		}
+		else if (selectedMutationOperator == 2)
+		{
+			int client = rand()%problemInstance.customerCount;
+			offspring.mutatePeriodAssignment(client);
+		}
+		/*else
+		{
+		//	offspring.mutateRoutePartition();
+		//	offspring.mutatePermutation(0);
+		}*/
 
 	}
 
 	//0 -> route partition
 	//1 ->	permutation
-	//2 -> both
+	//2 -> period
 	int selectMutationOperator()
 	{
 		return rand()%3;
@@ -733,28 +794,38 @@ public:
 
 
 	// it also calculates cost of every individual
-	int rouletteWheelSelection()
+	int rouletteWheelSelection(int generation)
 	{
     int i,j;
 		//SELECTION -> Roulette wheel
 		double sumOfFitness = 0,sumOfCost=0;
 		double sumOfProability = 0;
 
-		cout<< "SELECTION\nCost : ";
+		//cout<< "SELECTION\nCost : ";
 		for( i=0;i<POPULATION_SIZE;i++)
 		{
 			population[i].calculateFitness();
 			fitness[i] = population[i].cost;
+			// incorporate penalty
+	
+			double penalty = loadPenaltyFactor * (generation+1) * population[i].totalLoadViolation;
+			if(penalty>0)fitness[i] += penalty;
+			
+			penalty = routeTimePenaltyFactor * (generation+1) * population[i].totalRouteTimeViolation;
+			if(penalty>0)fitness[i] += penalty;
+
+
+		
 			sumOfCost += fitness[i];
-			cout << " "<<fitness[i];
+			//cout << " "<<fitness[i];
 		}
-		cout <<"   Total cost : "<<sumOfCost<<endl;
+		//cout <<"   Total cost : "<<sumOfCost<<endl;
 
 //		cout<< "Fitness : ";
 		for( i=0;i<POPULATION_SIZE;i++)
 		{
 			fitness[i] = sumOfCost / fitness[i]; // the original fitness
-			// incorporate penalty
+			
 			sumOfFitness += fitness[i];
 		//	cout << " "<< fitness[i];
 		}
@@ -771,7 +842,7 @@ public:
 		//find the smallest index i, with cdf[i] greater than indicator
 
 		int par =  findParent(indicator);
-		cout <<"Selected Parent : "<< par<<endl;
+		//cout <<"Selected Parent : "<< par<<endl;
 		return par;
 
 	}
@@ -855,7 +926,7 @@ void parseInputFile()
 		}
 		escapeComment();
 
-        /*
+        
         //time constraints
         escapeComment(); // escape the line "; t(total period) lines containg  v (total vehicle)
                          //values each referring maximum time limit for that day for that vehicle (NEW)"
@@ -871,7 +942,7 @@ void parseInputFile()
                 in>>problemInstance.timeConstraintsOfVehicles[i][j];
             }
         }
-            */
+            
 		//CLIENT COUNT
 		in>>problemInstance.customerCount;
 		escapeComment();
@@ -899,17 +970,38 @@ void parseInputFile()
 		escapeComment();
 
 		// cost matrix
-		escapeComment(); // escapes the line ";escape comment"
+		escapeComment(); // escapes the line ";cost matrix"
 		problemInstance.nodeCount = problemInstance.customerCount+problemInstance.depotCount;
 		problemInstance.costMatrix = new double*[problemInstance.nodeCount];
 		for( i=0;i<problemInstance.nodeCount;i++)problemInstance.costMatrix[i] = new double[problemInstance.nodeCount];
 
+		int row,col;
 
-		for(int row=0;row<problemInstance.nodeCount;row++)
-			for(int col=0;col<problemInstance.nodeCount;col++)
+		for( row=0;row<problemInstance.nodeCount;row++)
+			for( col=0;col<problemInstance.nodeCount;col++)
 				in>>problemInstance.costMatrix[row][col];
 
-		problemInstance.print();
+
+
+		//travelling time matrix
+		escapeComment(); // brings cursor to new line
+		escapeComment(); // escapes the line ";TRAVELLING TIME MATRIX"
+		problemInstance.travellingTimeMatrix = new double*[problemInstance.nodeCount];
+		for( i=0;i<problemInstance.nodeCount;i++)problemInstance.travellingTimeMatrix[i] = new double[problemInstance.nodeCount];
+
+
+		
+		for( row=0;row<problemInstance.nodeCount;row++)
+		{
+			for( col=0;col<problemInstance.nodeCount;col++)
+			{
+				in>>problemInstance.travellingTimeMatrix[row][col];
+				
+			}
+		}
+
+
+		//problemInstance.print();
 
 		GeneticAlgo ga(problemInstance);
 		ga.run();
@@ -920,10 +1012,11 @@ void parseInputFile()
 
 int main()
 {
-	//srand (time(NULL));
-	srand(1);
+	srand (time(NULL));
+	//srand(1);
 	ofstream file;
-	file.open ("out.txt");
+	//FILE
+	file.open ("out2.txt");
 	streambuf* sbuf = cout.rdbuf();
 	cout.rdbuf(file.rdbuf());
 
@@ -931,11 +1024,10 @@ int main()
 
 
 
-	 	parseInputFile();
+	 parseInputFile();
 
     cout<<"END\n";
     cout.rdbuf(sbuf);
 
 	return 0;
 }
-

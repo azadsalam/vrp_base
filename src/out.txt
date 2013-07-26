@@ -1,0 +1,94 @@
+VRP CPP V1
+OPENING INPUT FILE
+TEST CASES : 1
+TEST CASE 1 : 
+
+Period : 3
+Number of depots : 2
+Number of vehicles : 5 Allocation : 3 2 
+Vehicle to Depot Mapping : 0 0 0 1 1 
+Load Capacity/ Max allowable load for each vehicle : 10 10 10 10 10 
+Clients : 5
+Frequency allocation : 1 1 1 1 1 
+Service Time : 5 5 5 5 5 
+Demand (load) : 3 3 3 3 3 
+Printing cost matrix : 
+0 5 1 5 1 5 5 
+5 0 5 5 5 1 1 
+1 5 0 1 5 5 5 
+5 5 1 0 1 5 5 
+1 5 5 1 0 5 5 
+5 1 5 5 5 0 1 
+5 1 5 5 5 1 0 
+
+Initial population : 
+Printing individual 0 : 
+
+Fitness/Cost : 42
+
+Printing individual 1 : 
+
+Fitness/Cost : 29
+
+Printing individual 2 : 
+
+Fitness/Cost : 34
+
+Printing individual 3 : 
+
+Fitness/Cost : 34
+
+Printing individual 4 : 
+
+Fitness/Cost : 29
+
+--------------------------
+GENERATION : 0
+
+SELECTION
+Cost :  29 29 34 34 42   Total cost : 168
+Selected Parent : 1
+Selected Parent : 1
+
+Fitness/Cost : 29
+
+Offspring : 
+
+Fitness/Cost : 34
+
+SELECTION
+Cost :  29 29 34 34 42   Total cost : 168
+Selected Parent : 0
+Selected Parent : 0
+
+Fitness/Cost : 29
+
+Offspring : 
+
+Fitness/Cost : 29
+
+SELECTION
+Cost :  29 29 34 34 42   Total cost : 168
+Selected Parent : 2
+Selected Parent : 2
+
+Fitness/Cost : 34
+
+Offspring : 
+
+Fitness/Cost : 34
+
+SELECTION
+Cost :  29 29 34 34 42   Total cost : 168
+Selected Parent : 2
+Selected Parent : 2
+
+Fitness/Cost : 34
+
+Offspring : 
+
+Fitness/Cost : 28
+
+SELECTION
+Cost :  29 29 34 34 42   Total cost : 168
+Selected Parent : 4
